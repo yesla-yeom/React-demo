@@ -16,9 +16,12 @@ const MemberRegistComponent = () => {
       <input type="email" placeholder="이메일*" />
       <input type="tel" placeholder="휴대폰번호*" />
       <div>개인정보 유효기간 선택*</div>
-      <input type="checkbox" name="1년" value="1년"></input>
-      <input type="checkbox" name="3년" value="3년"></input>
-      <input type="checkbox" name="회원탈퇴시" value="회원탈퇴시"></input>
+      <input type="radio" name="1" value="1year" />
+      1년
+      <input type="radio" name="3" value="3years" />
+      3년
+      <input type="radio" name="withdraw" value="withdraw" />
+      회원탈퇴시
     </MemberRegistBox>
   );
 };
@@ -29,7 +32,7 @@ export default MemberRegistComponent;
 
 const MemberRegistBox = styled.div`
   margin-top: 5%;
-  width: 30vw;
+  width: 60%;
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
