@@ -16,11 +16,11 @@ const MemberRegistComponent = () => {
       <input type="email" placeholder="이메일*" />
       <input type="tel" placeholder="휴대폰번호*" />
       <div>개인정보 유효기간 선택*</div>
-      <input type="radio" name="1" value="1year" />
+      <input type="radio" name="infoyear" value="1year" />
       1년
-      <input type="radio" name="3" value="3years" />
+      <input type="radio" name="infoyear" value="3years" />
       3년
-      <input type="radio" name="withdraw" value="withdraw" />
+      <input type="radio" name="infoyear" value="withdraw" />
       회원탈퇴시
     </MemberRegistBox>
   );
