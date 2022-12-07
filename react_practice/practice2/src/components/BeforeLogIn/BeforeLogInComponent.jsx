@@ -8,7 +8,7 @@ const BeforeLogInComponent = ({ logInClick }) => {
   return (
     <BeforeLogInBox>
       <div className="logInFrame">개인회원 로그인</div>
-      <div className="logInRow">
+      <div className="logInDiv">
         <div className="logInInput">
           <input
             type="text"
@@ -38,6 +38,10 @@ const BeforeLogInComponent = ({ logInClick }) => {
           로그인
         </button>
       </div>
+      <div className="beforLogInDiv">
+        <div className="registBtn">회원가입</div>
+        <div className="findInfoBtn">ID/PW 찾기</div>
+      </div>
     </BeforeLogInBox>
   );
 };
@@ -48,7 +52,7 @@ const BeforeLogInBox = styled.div`
   width: 18%;
   background-color: aliceblue;
 
-  & .logInRow {
+  & .logInDiv {
     display: flex;
     justify-content: center;
     margin-top: 2%;
@@ -84,5 +88,19 @@ const BeforeLogInBox = styled.div`
     color: white;
     font-size: 1px;
     padding: 5px 16px;
+  }
+  & .beforLogInDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+  & .registBtn {
+    font-size: 12px;
+    margin: 5px;
+    color: gray;
+  }
+  & .findInfoBtn {
+    font-size: 12px;
+    margin: 5px;
+    color: gray;
   }
 `;
