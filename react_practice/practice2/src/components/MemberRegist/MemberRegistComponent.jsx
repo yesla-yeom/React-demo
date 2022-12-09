@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { FaStarOfLife } from "react-icons/fa";
+import { useState } from "react";
 
 const COLOR = "#3399ff";
 
-const MemberRegistComponent = () => {
+const MemberRegistComponent = ({ registClick }) => {
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
+  const [userPw, setUserPw] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userTel, setUserTel] = useState("");
+  // const [userInfoyear, setUserInfoyear] = useState("");
+
   return (
     <MemberRegistBox>
       <div className="joinLogo">JOBKOREA</div>
@@ -17,15 +25,51 @@ const MemberRegistComponent = () => {
           필수 입력 정보입니다.
         </div>
       </div>
-      <input type="text" className="input" placeholder="이름(실명)" />
-      <input type="text" className="input" placeholder="아이디" />
+      <input
+        type="text"
+        className="input"
+        value={userName}
+        placeholder="이름(실명)"
+        onInput={(e) => {
+          setUserName(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        className="input"
+        value={userId}
+        placeholder="아이디"
+        onInput={(e) => {
+          setUserId(e.target.value);
+        }}
+      />
       <input
         type="password"
         className="input"
-        placeholder="비밀번호(8~16자의 영문, 숫자, 특수기호)"
+        value={userPw}
+        placeholder="비밀번호(8자 이상의 영문, 숫자, 특수기호)"
+        onInput={(e) => {
+          setUserPw(e.target.value);
+        }}
       />
-      <input type="email" className="input" placeholder="이메일" />
-      <input type="tel" className="input" placeholder="휴대폰번호" />
+      <input
+        type="email"
+        className="input"
+        value={userEmail}
+        placeholder="이메일"
+        onInput={(e) => {
+          setUserEmail(e.target.value);
+        }}
+      />
+      <input
+        type="tel"
+        className="input"
+        value={userTel}
+        placeholder="휴대폰번호"
+        onInput={(e) => {
+          setUserTel(e.target.value);
+        }}
+      />
       <div className="radio">
         개인정보 유효기간 선택
         <FaStarOfLife />
@@ -36,7 +80,14 @@ const MemberRegistComponent = () => {
         <input type="radio" name="infoyear" value="withdraw" />
         회원탈퇴시
       </div>
-      <button className="memberRegistBtn">가입하기</button>
+      <button
+        className="memberRegistBtn"
+        onClick={() => {
+          registClick(userName, userId, userPw, userEmail, userTel);
+        }}
+      >
+        가입하기
+      </button>
     </MemberRegistBox>
   );
 };
@@ -45,7 +96,7 @@ export default MemberRegistComponent;
 
 const MemberRegistBox = styled.div`
   margin-top: 5%;
-  width: 60%;
+  width: 33%;
   height: 100%;
   background-color: aliceblue;
   display: flex;
@@ -72,7 +123,6 @@ const MemberRegistBox = styled.div`
     font-size: 12px;
     color: gray;
   }
-
   & .memberRegist {
     display: flex;
     justify-content: center;

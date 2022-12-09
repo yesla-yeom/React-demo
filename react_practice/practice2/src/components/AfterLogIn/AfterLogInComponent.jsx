@@ -28,7 +28,7 @@ export default AfterLogInComponent;
 
 const AfterLogInBox = styled.div`
   margin-top: 50px;
-  width: 18%;
+  width: 14%;
   background-color: #fafafa;
 
   & .afterLogInDiv1 {
