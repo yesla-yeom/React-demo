@@ -4,7 +4,7 @@ import MemberRegistContainer from "./components/MemberRegist/MemberRegistContain
 import { Provider } from "react-redux";
 import store from "./components/store";
 
-function App() {
+export default function App() {
   return (
     <Provider store={store}>
       <BeforeLogInContainer></BeforeLogInContainer>
@@ -13,5 +13,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;
