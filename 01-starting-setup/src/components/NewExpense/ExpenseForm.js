@@ -41,7 +41,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    props.onSaveExpensdeData(expenseData); // 프롭스 전달은 상향식 (자식컴포넌트에서 부모컴포넌트로) && 이게 NewExpense.js로 전달
+    props.onSaveExpenseData(expenseData); // 프롭스 전달은 상향식 (자식컴포넌트에서 부모컴포넌트로) && 이게 NewExpense.js로 전달
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate(""); // 제출하고 입력창 초기화
