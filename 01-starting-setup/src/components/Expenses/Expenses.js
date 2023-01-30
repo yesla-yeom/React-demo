@@ -11,7 +11,9 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
-  // 여기서 연도 필터링 하기~
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
@@ -20,15 +22,19 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {props.items.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            // map 사용 시 -> 리액트의 객체들은 키값이 고유값을 가져야 함 (없거나 겹치면 안됨)
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {filteredExpenses.length === 0 ? (
+          <p>No expenses found.</p>
+        ) : (
+          filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              // map 사용 시 -> 리액트의 객체들은 키값이 고유값을 가져야 함 (없거나 겹치면 안됨)
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))
+        )}
       </Card>
     </div>
   );
