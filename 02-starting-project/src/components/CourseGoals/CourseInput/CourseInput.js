@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useSpeechRecognition } from "react-speech-kit";
 import Button from "../../UI/Button/Button";
 import styles from "./CourseInput.module.css";
 
@@ -33,6 +33,13 @@ import styles from "./CourseInput.module.css";
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isValid, setIsValid] = useState(true);
+  const [value, setValue] = useState("");
+  const { listen, listening, stop } = useSpeechRecognition({
+    onResult: (result) => {
+      // 음성인식 결과가 value 상태값으로 할당됩니다.
+      setValue(result);
+    },
+  });
 
   const goalInputChangeHandler = (event) => {
     if (event.target.value.trim().length > 0) {
